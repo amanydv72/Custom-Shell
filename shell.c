@@ -201,8 +201,8 @@ int main() {
     char *args[64];
     char path[1024];
 
-    printf("\n\033[1;36mCustom Shell Created by Aman Yadav.\033[0m\n"); // Cyan color for the first line
-    printf("\033[1;33mType 'help' for a list of commands.\033[0m\n");    // Yellow color for the second line
+    printf("\n\033[1;36mCustom Shell Created by Aman Yadav.\033[0m\n"); 
+    printf("\033[1;33mType 'help' for a list of commands.\033[0m\n");  
     printf("\033[1;31mType 'exit' to quit.\033[0m\n");  
 
     while(1){
