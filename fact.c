@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Function to calculate factorial
 long long factorial(int n) {
     if (n == 0 || n == 1) {
         return 1;

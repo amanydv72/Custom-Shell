@@ -64,6 +64,7 @@ void input_to_args(char *str, char **args){
     args[i]=NULL; 
 }
 
+// Function to handle input redirection
 void input_redirection(char **args){
     for(int i=0; args[i]!=NULL; i++){
         if(strcmp(args[i], "<")==0){
@@ -79,6 +80,7 @@ void input_redirection(char **args){
         }
     }
 }
+
 // Function to handle output redirection
 void output_redirection(char **args){
     for(int i=0; args[i]!=NULL; i++){
@@ -95,6 +97,7 @@ void output_redirection(char **args){
         }
     }
 }
+
 // Function to execute the command using execvp
 void execute_commands_execvp(char **args){
     if(execvp(args[0], args)==-1){
@@ -102,6 +105,7 @@ void execute_commands_execvp(char **args){
         exit(EXIT_FAILURE);
     }
 }
+
 // Function to execute the command with I/O redirection
 void execute_command(char **args){
     pid_t pid=fork();
@@ -120,6 +124,7 @@ void execute_command(char **args){
     }
 }
 
+// Function to handle the "cd" built-in command
 void handle_cd_builtin(char **args){
     if(args[1]==NULL){
         char *home_dir=getenv("HOME");
@@ -134,6 +139,7 @@ void handle_cd_builtin(char **args){
     }
 }
 
+// Function displays help menu
 void display_help() {
     printf("\033[1;36m"); 
     printf("\n==================================================\n");
@@ -160,7 +166,6 @@ void display_help() {
     printf("==================================================\n");
     printf("\033[0m"); 
 }
-
 
 void print_shell_prompt(char *cwd){
     if(getcwd(cwd, 1024) == NULL){
@@ -194,7 +199,6 @@ void process_command(char *input, char *args[]){
         execute_command(args);
     }
 }
-
 
 int main() {
     char input[100];
